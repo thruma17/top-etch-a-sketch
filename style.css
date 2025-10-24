@@ -22,10 +22,9 @@ button {
   width: 480px;
   height: 480px;
   height: auto;
+  border: solid 1px black;
 }
 
 .grid-pixel {
   aspect-ratio: 1/1;
-
-  border: solid 1px red;
 }

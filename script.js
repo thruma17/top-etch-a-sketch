@@ -10,6 +10,9 @@ function createGrid(size) {
     pixel.className = `grid-pixel`;
     pixel.style.flex = `0 0 ${(100 / size).toFixed(2)}%`;
     grid.appendChild(pixel);
+    pixel.onmouseleave = function () {
+      this.style.backgroundColor = `black`;
+    };
   }
 }
 
