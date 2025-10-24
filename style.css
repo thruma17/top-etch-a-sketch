@@ -13,6 +13,18 @@ body {
   justify-content: space-evenly;
 }
 
+h1,
+p {
+  margin: 0.5rem;
+}
+
+h1 {
+  font-size: 2rem;
+}
+p {
+  font-size: 1rem;
+}
+
 button {
   margin-top: 1vmax;
   margin-bottom: 1vmax;
