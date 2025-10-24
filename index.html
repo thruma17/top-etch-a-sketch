@@ -9,13 +9,18 @@
   <body>
     <header>
       <h1>Disegna il tuo capolavoro</h1>
-      <p>Clicca sulla tela per iniziare a disegnare</p>
+      <p>Clicca sulla tela per disegnare</p>
     </header>
     <div id="container" class="flex-grid"></div>
-    <div>
-      <button id="btn-eraser" type="button">Gomma</button>
-      <button id="btn-squares" type="button">Cambia qualità</button>
-      <button id="btn-reset" type="reset">Tabula rasa</button>
+    <div id="buttons" class="btn-container">
+      <button id="penBtn" class="toolButtons" type="button">Penna</button>
+      <button id="pencilBtn" class="toolButtons" type="button">Matita</button>
+      <button id="rainbowBtn" class="toolButtons" type="button">
+        Arcobaleno
+      </button>
+      <button id="eraserBtn" class="toolButtons" type="button">Gomma</button>
+      <button id="clearBtn" type="reset">Ricomincia</button>
+      <button id="densityBtn" type="button">Qualità</button>
     </div>
 
     <script src="script.js"></script>
