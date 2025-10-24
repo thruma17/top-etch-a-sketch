@@ -24,7 +24,12 @@ createGrid(size);
 const densityButton = document.getElementById("btn-squares");
 densityButton.addEventListener("click", function () {
   customSize = prompt(`Choose a number between 2 and 64`, `16`);
-  createGrid(customSize);
+  if (customSize > 1 && customSize < 65) {
+    createGrid(customSize);
+  } else {
+    alert(`Invalid number, creating default pixel density`);
+    createGrid(size);
+  }
 });
 
 const cleanButton = document.getElementById("btn-reset");
