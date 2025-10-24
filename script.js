@@ -11,6 +11,12 @@ function createGrid(size) {
     pixel.className = `grid-pixel`;
     pixel.style.flex = `0 0 ${(100 / size).toFixed(3)}%`;
     grid.appendChild(pixel);
+    eraserButton = document.getElementById("btn-eraser");
+    eraserButton.addEventListener("click", () => {
+      pixel.onmouseleave = function () {
+        this.style.backgroundColor = `white`;
+      };
+    });
     grid.addEventListener("click", () => {
       pixel.onmouseleave = function () {
         this.style.backgroundColor = `black`;
