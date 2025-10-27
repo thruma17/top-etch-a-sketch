@@ -1,11 +1,11 @@
 * {
   box-sizing: border-box;
+  font-family: "Noto Sans", Verdana, sans-serif;
 }
 
 body {
   min-height: 100vh;
-  background-color: rgba(0, 0, 0, 0.9);
-  font-family: "Noto Sans", Verdana, sans-serif;
+  background-color: #1a1a1a;
   margin: 0;
   text-align: center;
   display: flex;
@@ -19,15 +19,24 @@ header {
 }
 
 h1,
-p {
+h2 {
   margin: 0.5rem;
 }
 
 h1 {
   font-size: 2rem;
 }
+
+h2 {
+  font-size: 1.2rem;
+}
+
 p {
   font-size: 1rem;
+  color: white;
+  text-align: left;
+  margin: 1vmax;
+  margin: 1vmax;
 }
 
 main {
@@ -52,6 +61,11 @@ button {
   border-radius: 10px;
 }
 
+.active {
+  background-color: slateblue;
+  color: white;
+}
+
 .flex-grid {
   background-color: white;
   display: flex;
@@ -70,5 +84,7 @@ img.github-logo {
 }
 
 footer {
+  display: flex;
+  align-items: center;
   color: white;
 }

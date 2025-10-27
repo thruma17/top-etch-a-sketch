@@ -9,12 +9,15 @@
   <body>
     <header>
       <h1>Disegna il tuo capolavoro</h1>
-      <p>Scegli il tuo strumento e inizia a disegnare</p>
+      <h2>Scegli il tuo strumento e inizia a disegnare</h2>
     </header>
 
     <main>
       <div id="buttons" class="btn-container">
-        <button id="penBtn" class="toolButtons" type="button">Penna</button>
+        <p>▶️ = click sulla tela<br />⏸️ = doppio click</p>
+        <button id="penBtn" class="toolButtons active" type="button">
+          Penna
+        </button>
         <button id="pencilBtn" class="toolButtons" type="button">Matita</button>
         <button id="rainbowBtn" class="toolButtons" type="button">
           Arcobaleno
@@ -33,6 +36,8 @@
           document.write(new Date().getFullYear());
         </script>
         thruma17
+      </p>
+      <p>
         <a
           href="https://github.com/thruma17/top-etch-a-sketch"
           target="_blank"
