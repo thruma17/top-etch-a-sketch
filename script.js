@@ -26,18 +26,20 @@ function clearGrid() {
 function setupGrid(currentSize) {
   clearGrid();
   for (let i = 0; i < currentSize ** 2; i++) {
-    const pixel = document.createElement(`div`);
-    pixel.className = `grid-pixel`;
+    const newPixel = document.createElement(`div`);
+    newPixel.id = `grid-pixel`;
+    newPixel.className = `grid-pixel`;
+    const pixel = newPixel;
     pixel.style.flex = `0 0 ${(100 / currentSize).toFixed(3)}%`;
     grid.appendChild(pixel);
     penBtn.addEventListener(`click`, () => {
       pixel.onmouseleave = function () {
-        this.style.backgroundColor = `black`;
+        pixel.style.backgroundColor = `black`;
       };
     });
     pencilBtn.addEventListener(`click`, () => {
       pixel.onmouseleave = function () {
-        this.style.backgroundColor = `gray`;
+        pixel.style.backgroundColor = `gray`;
       };
     });
     rainbowBtn.addEventListener(`click`, () => {
@@ -45,12 +47,12 @@ function setupGrid(currentSize) {
         const randomR = Math.floor(Math.random() * 256);
         const randomG = Math.floor(Math.random() * 256);
         const randomB = Math.floor(Math.random() * 256);
-        this.style.backgroundColor = `rgb(${randomR}, ${randomG}, ${randomB})`;
+        pixel.style.backgroundColor = `rgb(${randomR}, ${randomG}, ${randomB})`;
       };
     });
     eraserBtn.addEventListener(`click`, () => {
       pixel.onmouseleave = function () {
-        this.style.backgroundColor = `white`;
+        pixel.style.backgroundColor = `white`;
       };
     });
   }
