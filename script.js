@@ -30,14 +30,27 @@ function setupGrid(currentSize) {
     pixel.className = `grid-pixel`;
     pixel.style.flex = `0 0 ${(100 / currentSize).toFixed(3)}%`;
     grid.appendChild(pixel);
+    penBtn.addEventListener(`click`, () => {
+      pixel.onmouseleave = function () {
+        this.style.backgroundColor = `black`;
+      };
+    });
+    pencilBtn.addEventListener(`click`, () => {
+      pixel.onmouseleave = function () {
+        this.style.backgroundColor = `gray`;
+      };
+    });
+    rainbowBtn.addEventListener(`click`, () => {
+      pixel.onmouseleave = function () {
+        const randomR = Math.floor(Math.random() * 256);
+        const randomG = Math.floor(Math.random() * 256);
+        const randomB = Math.floor(Math.random() * 256);
+        this.style.backgroundColor = `rgb(${randomR}, ${randomG}, ${randomB})`;
+      };
+    });
     eraserBtn.addEventListener(`click`, () => {
       pixel.onmouseleave = function () {
         this.style.backgroundColor = `white`;
-      };
-    });
-    grid.addEventListener(`click`, () => {
-      pixel.onmouseleave = function () {
-        this.style.backgroundColor = `black`;
       };
     });
   }
