@@ -17,20 +17,6 @@ const clearBtn = document.getElementById(`clearBtn`);
 const densityBtn = document.getElementById(`densityBtn`);
 const grid = document.getElementById(`container`);
 
-// settings functions
-
-function setCurrentSize(newSize) {
-  currentSize = newSize;
-}
-
-//
-
-clearBtn.onclick = () => setupGrid(currentSize);
-
-let mouseDown = false;
-document.body.onmousedown = () => (mouseDown = true);
-document.body.onmouseup = () => (mouseDown = false);
-
 //
 
 function clearGrid() {
@@ -74,4 +60,9 @@ setupGrid(DEFAULT_SIZE);
 
 // event listeners
 
+clearBtn.onclick = () => setupGrid(currentSize);
 densityBtn.addEventListener(`click`, changeGrid);
+
+let mouseDown = false;
+document.body.onmousedown = () => (mouseDown = true);
+document.body.onmouseup = () => (mouseDown = false);
