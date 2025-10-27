@@ -14,7 +14,6 @@
 
     <main>
       <div id="buttons" class="btn-container">
-        <p>▶️ = click sulla tela<br />⏸️ = doppio click</p>
         <button id="penBtn" class="toolButtons active" type="button">
           Penna
         </button>
@@ -22,12 +21,18 @@
         <button id="rainbowBtn" class="toolButtons" type="button">
           Arcobaleno
         </button>
+      </div>
+      <div id="container" class="flex-grid"></div>
+      <div id="buttons" class="btn-container">
         <button id="eraserBtn" class="toolButtons" type="button">Gomma</button>
         <button id="clearBtn" type="reset">Ricomincia</button>
         <button id="densityBtn" type="button">Qualità</button>
       </div>
-      <div id="container" class="flex-grid"></div>
     </main>
+    <div class="instructions">
+      <p><span id="playBtn" class="">▶️</span> = click sulla tela</p>
+      <p><span id="pauseBtn" class="state-active">⏸️</span> = doppio click</p>
+    </div>
 
     <footer class="footer">
       <p>

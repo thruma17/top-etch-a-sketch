@@ -31,14 +31,6 @@ h2 {
   font-size: 1.2rem;
 }
 
-p {
-  font-size: 1rem;
-  color: white;
-  text-align: left;
-  margin: 1vmax;
-  margin: 1vmax;
-}
-
 main {
   display: flex;
   align-items: center;
@@ -49,6 +41,7 @@ main {
 .btn-container {
   display: flex;
   flex-direction: column;
+  min-width: 15vw;
 }
 
 button {
@@ -79,6 +72,30 @@ button {
   aspect-ratio: 1/1;
 }
 
+.instructions {
+  display: flex;
+  gap: 5vw;
+}
+
+.instructions p {
+  display: flex;
+  align-items: center;
+  text-align: center;
+  justify-content: space-evenly;
+  background-color: white;
+  color: black;
+  font-size: 1rem;
+  padding: 10px;
+  border-radius: 10px;
+  margin-top: 1vmax;
+  margin-bottom: 1vmax;
+  min-width: 15vw;
+}
+
+.state-active {
+  font-size: 2rem;
+}
+
 img.github-logo {
   max-width: 24px;
 }
@@ -87,4 +104,8 @@ footer {
   display: flex;
   align-items: center;
   color: white;
+}
+
+footer p {
+  margin: 1rem;
 }

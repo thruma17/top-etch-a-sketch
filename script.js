@@ -10,48 +10,34 @@ let currentSize = DEFAULT_SIZE;
 
 // variables
 
-const toolButtons = document.querySelectorAll(".toolButtons");
+const toolButtons = document.querySelectorAll(`.toolButtons`);
 const penBtn = document.getElementById(`penBtn`);
 const pencilBtn = document.getElementById(`pencilBtn`);
 const rainbowBtn = document.getElementById(`rainbowBtn`);
 const eraserBtn = document.getElementById(`eraserBtn`);
 const clearBtn = document.getElementById(`clearBtn`);
 const densityBtn = document.getElementById(`densityBtn`);
+const playBtn = document.getElementById(`playBtn`);
+const pauseBtn = document.getElementById(`pauseBtn`);
 const grid = document.getElementById(`container`);
 
 // functions
 
+function playDrawing() {
+  drawing = true;
+  playBtn.classList.add(`state-active`);
+  pauseBtn.classList.remove(`state-active`);
+}
+
+function pauseDrawing() {
+  drawing = false;
+  pauseBtn.classList.add(`state-active`);
+  playBtn.classList.remove(`state-active`);
+}
+
 function setCurrentTool(newTool) {
   chooseTool(newTool);
   currentTool = newTool;
-}
-
-function setupGrid(currentSize) {
-  grid.innerHTML = ``;
-  for (let i = 0; i < currentSize ** 2; i++) {
-    const newPixel = document.createElement(`div`);
-    newPixel.id = `grid-pixel`;
-    newPixel.className = `grid-pixel`;
-    newPixel.style.flex = `0 0 ${(100 / currentSize).toFixed(3)}%`;
-    grid.appendChild(newPixel);
-    newPixel.addEventListener("mouseleave", draw);
-  }
-}
-
-function clearGrid() {
-  grid.innerHTML = ``;
-  setupGrid(currentSize);
-}
-
-function changeGrid() {
-  customSize = prompt(`Choose a number between 2 and 64`, `16`);
-  if (customSize > 1 && customSize < 65) {
-    setupGrid(customSize);
-    currentSize = customSize;
-  } else {
-    alert(`Invalid number, creating default pixel density`);
-    setupGrid(currentSize);
-  }
 }
 
 function chooseTool(newTool) {
@@ -86,8 +72,36 @@ function chooseTool(newTool) {
   }
 }
 
+function setupGrid(currentSize) {
+  grid.innerHTML = ``;
+  for (let i = 0; i < currentSize ** 2; i++) {
+    const newPixel = document.createElement(`div`);
+    newPixel.id = `grid-pixel`;
+    newPixel.className = `grid-pixel`;
+    newPixel.style.flex = `0 0 ${(100 / currentSize).toFixed(3)}%`;
+    grid.appendChild(newPixel);
+    newPixel.addEventListener(`mouseleave`, draw);
+  }
+}
+
+function clearGrid() {
+  grid.innerHTML = ``;
+  setupGrid(currentSize);
+}
+
+function changeGrid() {
+  customSize = prompt(`Choose a number between 2 and 64`, `16`);
+  if (customSize > 1 && customSize < 65) {
+    setupGrid(customSize);
+    currentSize = customSize;
+  } else {
+    alert(`Invalid number, creating default pixel density`);
+    setupGrid(currentSize);
+  }
+}
+
 function draw(e) {
-  if (e.type === "mouseleave" && !drawing) return;
+  if (e.type === `mouseleave` && !drawing) return;
   switch (currentTool) {
     case `pen`:
       e.target.style.backgroundColor = `black`;
@@ -127,16 +141,16 @@ window.onload = () => {
 
 // event listeners
 
-penBtn.onclick = () => setCurrentTool("pen");
-pencilBtn.onclick = () => setCurrentTool("pencil");
-rainbowBtn.onclick = () => setCurrentTool("rainbow");
-eraserBtn.onclick = () => setCurrentTool("eraser");
+penBtn.onclick = () => setCurrentTool(`pen`);
+pencilBtn.onclick = () => setCurrentTool(`pencil`);
+rainbowBtn.onclick = () => setCurrentTool(`rainbow`);
+eraserBtn.onclick = () => setCurrentTool(`eraser`);
 clearBtn.onclick = () => clearGrid();
 densityBtn.addEventListener(`click`, changeGrid);
 
 // play/pause
 
 let drawing = false;
-grid.onclick = () => (drawing = true);
-grid.ondblclick = () => (drawing = false);
-grid.onmouseleave = () => (drawing = false);
+grid.onclick = playDrawing;
+grid.ondblclick = pauseDrawing;
+grid.onmouseleave = pauseDrawing;
