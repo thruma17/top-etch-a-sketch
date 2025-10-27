@@ -92,8 +92,13 @@ button {
   min-width: 15vw;
 }
 
+.instructions p span {
+  padding: 0.5rem;
+}
+
 .state-active {
-  font-size: 2rem;
+  background-color: slateblue;
+  border-radius: 10px;
 }
 
 img.github-logo {
@@ -107,5 +112,5 @@ footer {
 }
 
 footer p {
-  margin: 1rem;
+  margin: 10px;
 }
