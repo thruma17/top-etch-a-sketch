@@ -8,11 +8,6 @@ const DEFAULT_SIZE = 16;
 let currentTool = DEFAULT_TOOL;
 let currentSize = DEFAULT_SIZE;
 
-function setCurrentTool(newTool) {
-  chooseTool(newTool);
-  currentTool = newTool;
-}
-
 // variables
 
 const toolButtons = document.querySelectorAll(".toolButtons");
@@ -24,12 +19,12 @@ const clearBtn = document.getElementById(`clearBtn`);
 const densityBtn = document.getElementById(`densityBtn`);
 const grid = document.getElementById(`container`);
 
-let drawing = false;
-grid.onclick = () => (drawing = true);
-grid.ondblclick = () => (drawing = false);
-grid.onmouseleave = () => (drawing = false);
+// functions
 
-//
+function setCurrentTool(newTool) {
+  chooseTool(newTool);
+  currentTool = newTool;
+}
 
 function setupGrid(currentSize) {
   grid.innerHTML = ``;
@@ -138,3 +133,10 @@ rainbowBtn.onclick = () => setCurrentTool("rainbow");
 eraserBtn.onclick = () => setCurrentTool("eraser");
 clearBtn.onclick = () => clearGrid();
 densityBtn.addEventListener(`click`, changeGrid);
+
+// play/pause
+
+let drawing = false;
+grid.onclick = () => (drawing = true);
+grid.ondblclick = () => (drawing = false);
+grid.onmouseleave = () => (drawing = false);
