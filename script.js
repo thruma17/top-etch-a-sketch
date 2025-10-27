@@ -33,26 +33,35 @@ function setupGrid(currentSize) {
     pixel.style.flex = `0 0 ${(100 / currentSize).toFixed(3)}%`;
     grid.appendChild(pixel);
     penBtn.addEventListener(`click`, () => {
-      pixel.onmouseleave = function () {
+      pixel.onmouseenter = function () {
         pixel.style.backgroundColor = `black`;
+        pixel.style.opacity = 1;
       };
     });
     pencilBtn.addEventListener(`click`, () => {
-      pixel.onmouseleave = function () {
-        pixel.style.backgroundColor = `gray`;
+      pixel.onmouseenter = function () {
+        pixel.style.backgroundColor = `black`;
+        if (pixel.style.opacity <= 0.9) {
+          pixel.style.opacity = +pixel.style.opacity + 0.1;
+        } else if (
+          (pixel.style.opacity = 1 && pixel.style.backgroundColor === `black`)
+        ) {
+          pixel.style.opacity = 1;
+        }
       };
     });
     rainbowBtn.addEventListener(`click`, () => {
-      pixel.onmouseleave = function () {
+      pixel.onmouseenter = function () {
         const randomR = Math.floor(Math.random() * 256);
         const randomG = Math.floor(Math.random() * 256);
         const randomB = Math.floor(Math.random() * 256);
         pixel.style.backgroundColor = `rgb(${randomR}, ${randomG}, ${randomB})`;
+        pixel.style.opacity = 1;
       };
     });
     eraserBtn.addEventListener(`click`, () => {
-      pixel.onmouseleave = function () {
-        pixel.style.backgroundColor = `white`;
+      pixel.onmouseenter = function () {
+        pixel.style.opacity = 0;
       };
     });
   }
