@@ -52,3 +52,11 @@ button {
 .grid-pixel {
   aspect-ratio: 1/1;
 }
+
+img.github-logo {
+  max-width: 24px;
+}
+
+footer {
+  height: 10vh;
+}
